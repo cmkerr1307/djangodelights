@@ -9,10 +9,13 @@ class Ingredients(models.Model):
     unit_price = models.IntegerField(default=0)
 
 class MenuItems(models.Model):
-    pass
+    title = models.CharField(max_length = 30)
+    price = models.IntegerField(default=0)
 
 class RecipeRequirements(models.Model):
-    pass
+    menu_item = models.ForeignKey(MenuItems, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredients, on_delete=models.CASCADE)
+    quantity = models.CharField(max_length=10)
 
 class Purchases(models.Model):
     pass
