@@ -18,4 +18,5 @@ class RecipeRequirements(models.Model):
     quantity = models.CharField(max_length=10)
 
 class Purchases(models.Model):
-    pass
+    menu_item = models.ForeignKey(MenuItems, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField
