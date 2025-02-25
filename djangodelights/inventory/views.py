@@ -4,6 +4,9 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
+def home(request):
+    context = {"name": username}
+    return render(request, "inventory/home.html", context)
 
 class IngredientList(ListView):
     model = Ingredients
@@ -82,5 +85,5 @@ class PurchaseDelete(DeleteView):
 
 
 class Financial():
-    revenue = 
-    cost =
+    revenue = 0
+    cost = 0

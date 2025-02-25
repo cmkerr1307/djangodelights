@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            {% block head %}
+            {% endblock %}
+        </head>
+        <body>
+            <a href ="{% url 'home' %}">Home</a>
+            <h1>Welcome to Django Delights Inventory Management</h1>
+            {% block content %}
+            {% endblock %}
+        </body>
+    </html>

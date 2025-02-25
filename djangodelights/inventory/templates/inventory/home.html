@@ -1,0 +1,15 @@
+{% extends "inventory/base.html" %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href = "{% static 'inventory/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<p> Welcome, {{ username }}</p>
+<p>What would you like to look at today?</p>
+<a href = "{% url 'inventory' %}">Inventory</a>
+<a href = "{% url 'menu' %}">Menu</a>
+<a href = "{% url 'purchases' %}">Purchases</a>
+<a href = "{% url 'profit_revenue' %}">Profit & Revenue</a>
+{% endblock %}
