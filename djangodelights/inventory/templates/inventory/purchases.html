@@ -1,0 +1,27 @@
+{% extends "inventory/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href = "{% static 'inventory/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Purchases</h2>
+<table id = "purchase">
+    <tr>
+        <th>Menu Item</th>
+        <th>Timestamp</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        {% for purchase in purchase_list %}
+    </tr>
+    <tr>
+        <td>{{ purchases.menu_item }}</td>
+        <td>{{ purchases.timestamp }}</td>
+        <td><a href = "{% url 'purchaseupdate' purchases.id %}">Update</a></td>
+        <td><a href = "{% url 'purchasedelete' purchases.id %}">Delete</a></td>
+    </tr>
+</table>
+
+{% end block %}
