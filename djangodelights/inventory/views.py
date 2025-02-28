@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Ingredients, MenuItems, RecipeRequirements, Purchases
+from .forms import MenuCreateForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -15,12 +16,12 @@ class IngredientList(ListView):
 class IngredientCreate(CreateView):
     model = Ingredients
     template_name = "inventory/ingredient_create_form.html"
-    fields = ["name", "quantity", "unit", "unit_price"]
+   
 
 class IngredientUpdate(UpdateView):
     model = Ingredients
     template_name = "inventory/ingredient_update_form.html"
-    fields = ["name", "quantity", "unit", "unit_price"]
+    
 
 class IngredientDelete(DeleteView):
     model = Ingredients
@@ -36,12 +37,12 @@ class MenuList(ListView):
 class MenuCreate(CreateView):
     model = MenuItems
     template_name = "inventory/menuItem_create_form.html"
-    fields = ["title", "price"]
+    form_class = MenuCreateForm
 
 class MenuUpdate(UpdateView):
     model = MenuItems
     template_name = "inventory/menuItem_update_form.html"
-    fields = ["title", "price"]
+    
 
 class MenuDelete(DeleteView):
     model = MenuItems
@@ -52,12 +53,12 @@ class MenuDelete(DeleteView):
 class RecipeCreate(CreateView):
     model = RecipeRequirements
     template_name = "inventory/recipe_create_form.html"
-    fields = ["menu_item", "ingredient", "quantity"]
+    
 
 class RecipeUpdate(UpdateView):
     model = RecipeRequirements
     template_name = "inventory/recipe_update_form.html"
-    fields = ["menu_item", "ingredient", "quantity"]
+    
 
 class RecipeDelete(DeleteView):
     model = RecipeRequirements
@@ -72,12 +73,12 @@ class PurchaseList(ListView):
 class PurchaseCreate(CreateView):
     model = Purchases
     template_name = "inventory/purchase_create_form.html"
-    fields = ["menu_item", "timestamp"]
+    
 
 class PurchaseUpdate(UpdateView):
     model = Purchases
     template_name = "inventory/purchase_update_form.html"
-    fields = ["menu_item", "timestamp"]
+    
 
 class PurchaseDelete(DeleteView):
     model = Purchases
